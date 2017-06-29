@@ -6,6 +6,7 @@ import Main.Model exposing (Model)
 import Main.Message exposing (Message(..))
 import View.Home as Home
 import View.Login as Login
+import View.Logout as Logout
 import Types.Page exposing (Page(..))
 import Types.Route as Route
 import Route
@@ -23,6 +24,9 @@ view model =
             Html.map
                 LoginMessage
                 (Login.view subModel)
+
+        ( _, Logout ) ->
+            Logout.view
 
         ( _, Blank ) ->
             div [ class "main" ] []

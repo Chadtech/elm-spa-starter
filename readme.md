@@ -1,26 +1,23 @@
-# HI THERE
+# Elm Spa Starter
 
-This is my 
+This is a little prototype of most any application you would want to make. Clone it and build your application off it. Using this repo eliminates the tedium of starting a new project.
 
-# Elm Gulp Browserify Boilerplate
-
-Its basically a template development environment with all of my favorite dependencies. It also might be useful to look at, if you are learning how to use Elm.
+It also might be useful to look at, if you are learning how to use Elm.
 
 How to get going..
 ```
-> git clone https://github.com/Chadtech/elm-gulp-browserify-boilerplate new-project
+> git clone https://github.com/Chadtech/elm-spa-starter new-project
 > cd new-project
 > npm install
 > elm package install --yes
 > gulp
 
-then open up http://localhost:2978
+then open up http://localhost:2966
 ```
 
 
 This repo is organized as ..
-```
-distribution/             -- Your production-ready app
+``` 
 development/              -- Your development app
   index.html
 source/                   -- Source files

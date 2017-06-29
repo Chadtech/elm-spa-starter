@@ -34,11 +34,16 @@ update message model =
             let
                 ( newSubModel, cmd ) =
                     Home.update subMessage subModel
+
+                cmds =
+                    [ Cmd.map HomeMessage cmd
+                    , Home.save model.session newSubModel.count
+                    ]
             in
                 { model
                     | page = Home newSubModel
                 }
-                    ! [ Cmd.map HomeMessage cmd ]
+                    ! cmds
 
         _ ->
             model ! []

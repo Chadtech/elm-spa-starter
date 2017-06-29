@@ -1,4 +1,4 @@
-module Main.Message exposing (Message(..), Handler)
+module Main.Message exposing (Message(..))
 
 import Types.Home as Home
 import Types.Login as Login
@@ -10,7 +10,3 @@ type Message
     | LoginMessage Login.Message
     | HandlePort String
     | SetRoute (Maybe Route)
-
-
-type alias Handler a =
-    a -> Message
