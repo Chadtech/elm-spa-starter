@@ -2,8 +2,6 @@ module Main.Update exposing (update)
 
 import Main.Model exposing (Model)
 import Main.Message exposing (Message(..))
-import Types.Home
-import Types.Login
 import Types.Page exposing (Page(..))
 import Update.Route as Route
 import Update.Home as Home

@@ -5,6 +5,8 @@ import Main.Message exposing (Message(..))
 import Types.Login exposing (ExternalMessage(..))
 import Types.Page exposing (Page(..))
 import Types.Home as Home
+import Types.Route as Route
+import Route
 
 
 handle : Maybe ExternalMessage -> ( Model, Cmd Message ) -> ( Model, Cmd Message )
@@ -17,7 +19,7 @@ handle externalMessage ( model, cmd ) =
                     Just
                         { username = username }
             }
-                ! [ cmd ]
+                ! [ cmd, Route.modifyUrl Route.Home ]
 
         _ ->
             ( model, cmd )
