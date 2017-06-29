@@ -2,13 +2,45 @@ module Main.Update exposing (update)
 
 import Main.Model exposing (Model)
 import Main.Message exposing (Message(..))
+import Types.Home
+import Types.Login
+import Types.Page exposing (Page(..))
+import Update.Route as Route
+import Update.Home as Home
+import Update.Login as Login
+import Update.Login.HandleExternal as LoginExternal
 
 
 update : Message -> Model -> ( Model, Cmd Message )
 update message model =
-    case message of
-        UpdateField str ->
-            Model str ! []
+    case ( message, model.page ) of
+        ( SetRoute maybeRoute, _ ) ->
+            Route.set maybeRoute model
 
-        HandlePort str ->
-            Model str ! []
+        ( LoginMessage subMessage, Login subModel ) ->
+            let
+                ( newSubModel, cmd, externalMessage ) =
+                    Login.update subMessage subModel
+
+                newModelAndCmd =
+                    { model
+                        | page = Login newSubModel
+                    }
+                        ! [ Cmd.map LoginMessage cmd ]
+            in
+                LoginExternal.handle
+                    externalMessage
+                    newModelAndCmd
+
+        ( HomeMessage subMessage, Home subModel ) ->
+            let
+                ( newSubModel, cmd ) =
+                    Home.update subMessage subModel
+            in
+                { model
+                    | page = Home newSubModel
+                }
+                    ! [ Cmd.map HomeMessage cmd ]
+
+        _ ->
+            model ! []

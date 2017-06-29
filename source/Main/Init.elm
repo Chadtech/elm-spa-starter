@@ -1,14 +1,17 @@
-module Main.Init exposing (model, cmd)
+module Main.Init exposing (init)
 
 import Main.Model exposing (Model)
 import Main.Message exposing (Message(..))
+import Json.Decode exposing (Value)
+import Navigation exposing (Location)
+import Types.Page exposing (Page(..))
+import Update.Route as Route
+import Route
 
 
-model : Model
-model =
-    Model ""
-
-
-cmd : Cmd Message
-cmd =
-    Cmd.none
+init : Value -> Location -> ( Model, Cmd Message )
+init json location =
+    Route.set (Route.fromLocation location)
+        { page = Blank
+        , session = Nothing
+        }

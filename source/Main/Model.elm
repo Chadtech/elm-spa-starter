@@ -1,5 +1,10 @@
 module Main.Model exposing (Model)
 
+import Types.Session exposing (Session)
+import Types.Page exposing (Page(..))
+
 
 type alias Model =
-    { field : String }
+    { session : Maybe Session
+    , page : Page
+    }
