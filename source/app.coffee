@@ -15,6 +15,9 @@ app.ports.save.subscribe (payload) ->
     localStorage.setItem "elm-spa-starter", session
 
 
+app.ports.deleteSession.subscribe ->
+    localStorage.removeItem "elm-spa-starter"
+
 
 app.ports.toJS.subscribe (thing) ->
     console.log thing

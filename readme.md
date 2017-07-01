@@ -23,19 +23,41 @@ development/              -- Your development app
 source/                   -- Source files
   app.coffee              -- Loads your elm file, and handles ports
   Ports.elm               -- Javascript inter-operation ports
-  Main.elm
+  Main.elm                -- Main Elm file
+  Route.elm               -- Primary routing functions
   Util.elm                -- Functions that are generally useful
   Types/
   Styles/
-    Main.styl
-    p.styl
+    a.styl                -- Styles for buttons
+    card.styl             -- Styles for cards
+    form.styl             -- Styles for form stuff
+    Main.styl             -- General stuff, like colors and body styling
+    p.styl             
   Main/
-    Init.elm
-    Subscriptions.elm
-    Update.elm
-    View.elm
-    Model.elm
-    Message.elm
+    Init.elm              -- Where the initial state is determined
+    Subscriptions.elm    
+    Update.elm            -- Main update function
+    View.elm              -- Main view function
+    Model.elm             -- Where the model is defined
+    Message.elm           -- Where messages are defined
+  Types/
+    Home.elm              -- Model and Message type for the home page
+    Login.elm             -- Model and Message type for the login page
+    Page.elm              -- The Page type used in the main model
+    Route.elm             -- The Route type used in Route primarily
+    Session.elm           -- The Sesson type, used in the main model
+  Update/
+    Login/
+      HandleExternal.elm  -- A helper module to handle external messages
+    Login.elm             -- The login page update function
+    Home.elm              -- The home page update function
+    Route.elm             -- Where routing is handled
+  View/
+    Home.elm              -- The home view
+    Login.elm             -- The login view
+    Logout.elm            -- the logout view
+
+
 gulpFile.coffee
 server.js
 ```
