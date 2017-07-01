@@ -1,18 +1,16 @@
 {
-  "name": "elm-gulp-browserify-boilerplate",
+  "name": "elm-spa-starter",
   "version": "1.0.0",
-  "description": "Elm Gulp Browserify Boilerplate",
-  "main": "gulpFile.js",
+  "description": "Elm SPA starter",
+  "main": "gulpFile.coffee",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Chadtech/elm-gulp-browserify-boilerplate"
+    "url": "https://github.com/Chadtech/elm-spa-starter"
   },
   "keywords": [
     "elm",
     "elmlang",
-    "gulp",
-    "boilerplate",
-    "browserify"
+    "spa"
   ],
   "dependencies": {
     "browserify": "^13.0.0",
